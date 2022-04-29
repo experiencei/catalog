@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 
-function Thumbs({ items, currentIndex , selectedCatalog }) {
-    const onImageSelect = (e) => {
-         selectedCatalog(e.target.id);
+function Thumbs({ items, activeIndex , selectedCatalog }) {
+    const onImageSelect = (event) => {
+         selectedCatalog(event.target.id);
     }
 
 
@@ -13,12 +13,12 @@ function Thumbs({ items, currentIndex , selectedCatalog }) {
                     <span   
                         id={idx} 
                         key={idx} 
-                        onClick={() => onImageSelect()}
+                        onClick={(event) => onImageSelect(event)}
                         data-testid={'thumb-button-' + idx}
                     >
                         <span 
                             className={'inline-flex w-90 pa-4 image-thumb ' + 
-                                (idx === currentIndex ? 'thumb-selected' : '')} 
+                                (idx === activeIndex ? 'thumb-selected' : '')} 
                         >
                             <span 
                                 className='mx-5 thumb' 
